@@ -2,7 +2,6 @@ import os
 import textract
 import openpyxl
 
-# Define the file path
 file_path = "a.pdf"     
 
 # Get the file extension
@@ -14,7 +13,7 @@ if file_extension in ['.xlsx', '.xls', '.csv']:
     for row in worksheet.iter_rows(min_row=1, max_col=worksheet.max_column, values_only=True):
         print("".join(str(cell if cell is not None else "") for cell in row))
     workbook.close()
-else:
+else:  
     # Process the PDF or Word file
     text = textract.process(file_path)
     text = text.decode('utf-8')
